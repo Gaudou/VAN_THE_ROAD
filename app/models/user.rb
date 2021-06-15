@@ -9,6 +9,4 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :birth_date, :email, :user_city, presence: true
   validates :email, uniqueness: true
-
-
 end
