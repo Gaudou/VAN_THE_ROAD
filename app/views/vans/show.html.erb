@@ -7,4 +7,6 @@
   <li><%= @van.availability? %></li>
   <li><%= @van.description %></li>
 </ul>
+<%= link_to 'Booking', new_van_booking_path(@van) %>
 <%= link_to 'Van list', vans_path %>
+
