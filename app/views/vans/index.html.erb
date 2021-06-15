@@ -1,0 +1,10 @@
+<% @vans.each do |van| %>
+  <ul>
+    <li><%= link_to van.name, van_path(van)%></li>
+    <li><%= van.model %></li>
+    <li><%= van.capacity %></li>
+    <li><%= van.price_per_day %></li>
+    <li><%= van.van_city %></li>
+    <li><%= van.availability? %></li>
+  </ul>
+  <% end %>
