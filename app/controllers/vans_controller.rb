@@ -34,6 +34,7 @@ class VansController < ApplicationController
 
   def update
     @van = Van.find(params[:id])
+    authorize @van
     @van.update(params_van)
     redirect_to van_path(@van)
   end
