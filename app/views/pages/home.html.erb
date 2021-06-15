@@ -2,8 +2,13 @@
     <h1>Pages#home</h1>
     <p>Welcome to our homepage</p>
 
+  <% if policy(Van).index? %>
   <p><%= link_to 'All vans', vans_path, class: 'btn btn-primary' %></p>
+  <% end %>
+
+  <% if policy(Van).create? %>
   <p><%= link_to 'Create a new van', new_van_path, class: 'btn btn-primary' %></p>
+  <% end %>
 
   </div>
 

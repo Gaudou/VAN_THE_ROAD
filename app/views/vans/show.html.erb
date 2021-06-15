@@ -8,3 +8,7 @@
   <li><%= @van.description %></li>
 </ul>
 <%= link_to 'Van list', vans_path %>
+
+<% if policy(@van).edit? %>
+  <%= link_to 'Edit my Van', edit_van_path(@van) %>
+<% end %>
