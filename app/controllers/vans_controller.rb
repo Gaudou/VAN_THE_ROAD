@@ -1,4 +1,6 @@
 class VansController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
     @vans = Van.all
   end
@@ -13,7 +15,7 @@ class VansController < ApplicationController
 
   def create
     @van = Van.new(params_van)
-    @user = User.new
+    @van.user = current_user
     if @van.save
       redirect_to van_path(@van)
     else
