@@ -20,12 +20,13 @@ class VansController < ApplicationController
   end
 
   def edit
-    @van = Van.new
+    @van = Van.find(params[:id])
   end
 
   def update
     @van = Van.find(params[:id])
-
+    @van.update(params_van)
+    redirect_to van_path(@van)
   end
 
   def destroy
