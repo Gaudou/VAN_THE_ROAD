@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @booking.van = @van
     @booking.user = @user
     if @booking.save
+      @booking.status = "pending"
       redirect_to van_path(@van)
     else
       render :new
