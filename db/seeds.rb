@@ -26,7 +26,8 @@ names.each do |name|
     van = Van.new(
     name: Faker::Name.name,
     model: Faker::Vehicle.model,
-    capacity: Faker::Quote.matz,
+    capacity: ["1", "2", "4", "5", "6"].sample,
+    description: Faker::Quote.matz,
     van_city: Faker::Address.city,
     price_per_day: [50, 75, 120].sample,
     )
