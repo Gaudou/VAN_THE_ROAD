@@ -12,7 +12,11 @@ class BookingsController < ApplicationController
     @booking.user = @user
     if @booking.save
       @booking.status = "pending"
+      @booking.save
+      @van.availability = false
+      @van.save
       redirect_to van_path(@van)
+
     else
       render :new
     end
