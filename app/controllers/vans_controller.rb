@@ -24,6 +24,8 @@ class VansController < ApplicationController
   end
 
   def update
+    @van = Van.find(params[:id])
+
   end
 
   def destroy
