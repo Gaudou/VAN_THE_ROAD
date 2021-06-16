@@ -9,6 +9,7 @@ class VansController < ApplicationController
   def show
     @van = Van.find(params[:id])
     authorize @van
+    @booking = Booking.find_by(user_id: current_user, van_id: @van)
   end
 
   def new

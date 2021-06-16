@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   def new
     @van = Van.find(params[:van_id])
     @booking = Booking.new
-    policy_scope(Booking)
+    authorize @booking
   end
 
   def create
@@ -18,22 +18,24 @@ class BookingsController < ApplicationController
       @van.availability = false
       @van.save
       redirect_to van_path(@van)
-
     else
       render :new
     end
   end
 
   def accept
-    authorize @booking
   end
 
   def decline
-    authorize @booking
   end
 
   def destroy
+    @van = Van.find(params[:van_id])
+    #@booking = Booking.find(params[:id])
+    @booking = Booking.find_by(van_id: @van, user_id: current_user)
     authorize @booking
+    @booking.destroy
+    redirect_to vans_path
   end
 
   private

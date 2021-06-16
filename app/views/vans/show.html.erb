@@ -11,6 +11,9 @@
 <%= link_to 'Van list', vans_path, class: 'btn btn-primary'%>
 
 <%= link_to 'Booking', new_van_booking_path(@van), class:'btn btn-info' %>
+
+<%= link_to "Cancel my booking", van_booking_path(@van, @booking), method: :delete, data: { confirm: "Are you sure ?" }, class: "btn btn-danger" %>
+
 <br>
 <br>
 
@@ -22,6 +25,4 @@
   <%= link_to '- Delete my Van', van_path(@van), method: :delete, data: { confirm: "Are you sure?" },  class:'btn btn-danger' %>
 <% end %>
 
-
-
-
+<%= console %>
