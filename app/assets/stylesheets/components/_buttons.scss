@@ -1,21 +1,23 @@
-.pushable {
-  background: #D98526;
-  border: none;
-  border-radius: 12px;
-  padding: 0;
-  cursor: pointer;
-  outline-offset: 4px;
+.btn-medium {
+  color: white;
+  background-color: #d98526;
+  border: 1px solid white;
+  border-radius: 50px;
+  opacity: 0.5;
+  text-decoration: none;
+  margin: 40px;
+  display: inline-block;
+  padding: 16px 36px;
 }
 
-.front {
-  display: block;
-  padding: 12px 42px;
-  border-radius: 12px;
-  font-size: 1.25rem;
-  background: #D98526;
-  color: white;
-  transform: translateY(-6px);
+.btn-medium:hover {
+  opacity: 1;
 }
-.pushable:active .front {
-  transform: translateY(-2px);
+
+
+.btn-detail {
+  border-radius: 50px;
+  display: inline-block;
+  padding: 16px 36px;
+  margin: 40px;
 }
