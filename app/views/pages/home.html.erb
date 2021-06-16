@@ -1,10 +1,16 @@
- <div class="full-screen">
+<div class="full-screen">
   <div class="container">
     <div class="title-home">
       <h1>Welcome to Van the road</h1>
+      <% if policy(Van).index? %>
       <%= link_to 'Discover our vans', vans_path, class: 'btn btn-primary btn-detail' %>
+      <% end %>
+      <% if policy(Van).create? %>
       <%= link_to 'Post your van for rent', new_van_path, class: 'btn btn-primary btn-detail' %>
+      <% end %>
     </div>
   </div>
 </div>
+
+
 
