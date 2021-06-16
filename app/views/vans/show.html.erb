@@ -7,6 +7,7 @@
   <li><%= @van.availability? %></li>
   <li><%= @van.description %></li>
 </ul>
+
 <%= link_to 'Van list', vans_path %>
 
 <% if policy(@van).edit? %>
@@ -16,3 +17,7 @@
 <% if policy(@van).destroy? %>
   <%= link_to 'Delete my Van', van_path(@van), method: :delete, data: { confirm: "Are you sure?" },  class:'btn btn-danger' %>
 <% end %>
+
+<%= link_to 'Booking', new_van_booking_path(@van) %>
+<%= link_to 'Van list', vans_path %>
+
