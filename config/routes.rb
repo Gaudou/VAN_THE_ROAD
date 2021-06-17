@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :vans do
     resources :bookings, only: [ :new, :create, :destroy]
       member do
-      get :decline
-      get :accept
+      patch :decline
+      patch :accept
     end
   end
 end
