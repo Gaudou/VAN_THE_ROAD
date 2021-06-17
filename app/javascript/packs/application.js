@@ -24,19 +24,26 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import swal from 'sweetalert';
+
 
 
 // Internal imports, e.g:
+import { initSweetalert } from '../plugins/booking_confirmation';
+import { initMapbox } from '../plugins/init_mapbox';
 // import { initSelect2 } from '../components/init_select2';
 
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
 
-import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-})
+  initSweetalert('#booking-confirmation', {
+    title: "Booking confirmed!",
+    text: "Great, isn't it?",
+    icon: "success"
+  }, (value) => {
+     if (value) {
+    const link = document.querySelector('#submit-booking');
+    link.click();
+  }
+  });
+});

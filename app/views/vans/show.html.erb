@@ -32,7 +32,7 @@
 <br>
 
 <% if policy(@van).edit? %>
-  <%= link_to 'Edit my Van', edit_van_path(@van), :data => {:confirm => 'Are you sure?'}, class: 'btn btn-secondary' %>
+  <%= link_to 'Edit my Van', edit_van_path(@van), class: 'btn btn-secondary' %>
 <% end %>
 
 <% if policy(@van).destroy? %>
