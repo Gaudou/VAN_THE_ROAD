@@ -16,4 +16,8 @@ class BookingPolicy < ApplicationPolicy
     def create?
       return true
     end
+
+    def dashboard?
+      true
+    end
 end

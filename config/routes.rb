@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       get :accept
     end
   end
+  get 'dashboard', to: 'profils#dashboard'
 end
