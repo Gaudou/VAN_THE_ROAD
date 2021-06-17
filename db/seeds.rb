@@ -11,7 +11,7 @@ Van.destroy_all
 User.destroy_all
 puts 'create seed db'
 
-names = ["gauderic", "josephine", "marie", "molki"]
+names = ["gauderic", "josephine", "marie", "molki", "Adrien", "Christian", "Bob", "Marc", "Alan", "Victor"]
 names.each do |name|
   user = User.create!(
     first_name: Faker::Name.first_name,
@@ -20,15 +20,15 @@ names.each do |name|
     email: "#{name}@email.fr",
     password: "azerty",
     password_confirmation: "azerty",
-    user_city: Faker::Address.city,
+    user_city: ["Lille", "Marseille", "Nantes", "Bordeaux", "Paris", "Lyon"].sample,
     )
   puts 'user created'
     van = Van.new(
     name: Faker::Name.name,
-    model: Faker::Vehicle.model,
+    model: "Volkswagen",
     capacity: ["1", "2", "4", "5", "6"].sample,
     description: Faker::Quote.matz,
-    van_city: Faker::Address.city,
+    van_city: ["Lille", "Marseille", "Nantes", "Bordeaux", "Paris", "Lyon"].sample,
     price_per_day: [50, 75, 120].sample,
     )
     van.user = user
