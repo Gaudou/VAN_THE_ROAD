@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 puts 'clean db'
+Booking.destroy_all
 Van.destroy_all
 User.destroy_all
 puts 'create seed db'
@@ -35,4 +36,22 @@ names.each do |name|
     van.save!
   puts 'van created'
 end
-puts 'done'
+
+    booking = Booking.new(
+    starting_date: Faker::Date.forward(days: rand(0..31)),
+    ending_date: Faker::Date.forward(days: rand(32..60))
+    )
+    booking.user = User.first
+    booking.van = Van.last
+    booking.save!
+    puts 'booking created'
+
+    booking = Booking.new(
+    starting_date: Faker::Date.forward(days: rand(0..31)),
+    ending_date: Faker::Date.forward(days: rand(32..60))
+    )
+    booking.user = User.last
+    booking.van = Van.first
+    booking.save!
+    puts 'booking created'
+    puts 'done'
