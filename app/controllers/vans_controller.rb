@@ -2,8 +2,8 @@ class VansController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    query = {model: params[:model], capacity: params[:capacity], van_city: params[:van_city]}
-    if query.values.all? {|element| element == ""}
+    query = { model: params[:model], capacity: params[:capacity], van_city: params[:van_city] }
+    if query.values.all? { |element| element == "" }
       @vans = Van.all
     else
       @vans = Van.search_global("#{params[:model]} #{params[:capacity]} #{params[:van_city]}")
