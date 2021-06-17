@@ -16,8 +16,10 @@ class BookingsController < ApplicationController
       @booking.status = "pending"
       @booking.save
       @van.availability = false
-      @van.save
-      redirect_to van_path(@van)
+
+      @van.save!
+      redirect_to dashboard_path
+
     else
       render :new
     end
@@ -28,7 +30,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.status = "accepted"
     @booking.save
-    redirect_to vans_path # quand j'aurai la view rediriger au profil
+    redirect_to dashboard_path # quand j'aurai la view rediriger au profil
   end
 
   def decline
@@ -36,7 +38,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.status = "declined"
     @booking.save
-    redirect_to vans_path
+    redirect_to dashboard_path
   end
 
   def destroy
