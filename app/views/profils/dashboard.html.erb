@@ -2,9 +2,9 @@
   <h2>My vans</h2>
   <% @vans_user.each do |van_user| %>
     <h3><%= van_user.name %></h3>
-    <p><%= van_user.model %></p>
-    <p><%= van_user.capacity %></p>
-    <p><%= van_user.van_city %></p>
+    <p><strong>Model: </strong><%= van_user.model %></p>
+    <p><strong>Capacity: </strong><%= van_user.capacity %></p>
+    <p><strong>City: </strong><%= van_user.van_city %></p>
     <p><% if van_user.availability? %>
         <p class="van-status__available">Available</p>
       <% else %>
@@ -13,8 +13,8 @@
     </p>
   <% end %>
   <% @bookings_user.each do |booking_user| %>
-    <p><%= booking_user.starting_date %></p>
-    <p><%= booking_user.ending_date %></p>
+    <p><strong>Starting date: </strong><%= booking_user.starting_date %></p>
+    <p><strong>Ending date: </strong><%= booking_user.ending_date %></p>
   <% end %>
 </div>
 
@@ -22,7 +22,7 @@
   <h2>My booking</h2>
   <% @my_bookings.each do |my_booking| %>
     <h3><%= my_booking.van.name %></h3>
-    <p><%= my_booking.starting_date %></p>
-    <p><%= my_booking.ending_date %></p>
+    <p><strong>Starting date: </strong><%= my_booking.starting_date %></p>
+    <p><strong>Ending date: </strong><%= my_booking.ending_date %></p>
   <% end %>
 </div>
