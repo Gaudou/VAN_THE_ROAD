@@ -17,7 +17,6 @@ class VansController < ApplicationController
          #<i class="fas fa-shuttle-van" style="color:#d98526"></i>
         image_url: helpers.asset_url('shuttle-van-solid')
       }
-
     end
   end
 

@@ -27,7 +27,7 @@ gem 'devise'
 gem 'faker'
 # Gem pendit
 
-
+# Gem Geocoder
 gem 'geocoder'
 
 #gem pundit
