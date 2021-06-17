@@ -29,6 +29,7 @@ gem 'faker'
 
 # Gem Geocoder
 gem 'geocoder'
+gem 'sweetalert2'
 
 #gem pundit
 gem 'pundit'
