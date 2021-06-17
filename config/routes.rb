@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       patch :accept
     end
   end
+  get 'dashboard', to: 'profils#dashboard'
 end
