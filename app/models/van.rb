@@ -1,4 +1,14 @@
 class Van < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_global,
+    against: [ :model, :van_city, :capacity],
+    associated_against: {
+      booking: [:starting_date, :ending_date]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   belongs_to :user
   has_many :bookings, dependent: :destroy
 

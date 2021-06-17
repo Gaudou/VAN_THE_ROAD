@@ -2,7 +2,11 @@ class VansController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    if params[:query].present?
+      @vans = Van.search_global(params[:query])
+    else
     @vans = Van.all
+    end
     policy_scope(Van)
   end
 
@@ -10,6 +14,7 @@ class VansController < ApplicationController
     @van = Van.find(params[:id])
     authorize @van
     @booking = Booking.find_by(user_id: current_user, van_id: @van)
+    # will return nil if do not meet any record corresponding to my current_user & van_id, so not my booking
   end
 
   def new

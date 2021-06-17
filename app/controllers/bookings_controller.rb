@@ -31,7 +31,6 @@ class BookingsController < ApplicationController
 
   def destroy
     @van = Van.find(params[:van_id])
-    #@booking = Booking.find(params[:id])
     @booking = Booking.find_by(van_id: @van, user_id: current_user)
     authorize @booking
     @booking.destroy

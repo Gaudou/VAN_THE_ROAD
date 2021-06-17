@@ -1,5 +1,42 @@
 <div class="full-screen">
   <div class="container">
+
+    <div id="search-form">
+      <%= form_tag vans_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Model"
+        %>
+         <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "City"
+        %>
+
+         <%= number_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Capacity",
+          min:0
+        %>
+
+        <%= label_tag "Renting dates" %>
+        <%= date_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "From"
+        %>
+        <%= date_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "To"
+        %>
+
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
     <div class="title-home">
       <h1>Welcome to Van the road</h1>
       <% if policy(Van).index? %>
