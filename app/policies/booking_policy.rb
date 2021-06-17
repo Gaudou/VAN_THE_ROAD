@@ -17,7 +17,16 @@ class BookingPolicy < ApplicationPolicy
       return true
     end
 
+
     def dashboard?
       true
+    end
+  
+    def accept?
+      record.van.user == user
+    end
+
+    def decline?
+      record.van.user == user
     end
 end

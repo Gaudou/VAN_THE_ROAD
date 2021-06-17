@@ -2,14 +2,30 @@ class VansController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @vans = Van.all
+    query = { model: params[:model], capacity: params[:capacity], van_city: params[:van_city] }
+    if query.values.all? { |element| element == "" }
+      @vans = Van.all
+    else
+      @vans = Van.search_global("#{params[:model]} #{params[:capacity]} #{params[:van_city]}")
+    end
     policy_scope(Van)
+    @markers = @vans.geocoded.map do |van|
+      {
+        lat: van.latitude,
+        lng: van.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { van: van }),
+         #<i class="fas fa-shuttle-van" style="color:#d98526"></i>
+        image_url: helpers.asset_url('shuttle-van-solid')
+      }
+
+    end
   end
 
   def show
     @van = Van.find(params[:id])
     authorize @van
     @booking = Booking.find_by(user_id: current_user, van_id: @van)
+    # will return nil if do not meet any record corresponding to my current_user & van_id, so not my booking
   end
 
   def new

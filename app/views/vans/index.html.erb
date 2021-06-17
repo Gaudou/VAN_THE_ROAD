@@ -1,8 +1,10 @@
 <h1 id="van-list">Choose your van !</h1>
+
+
 <div class="cards">
   <% @vans.each do |van| %>
     <div class="card-van">
-      <img src="https://images.unsplash.com/photo-1594495894542-a46cc73e081a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" />
+      <img src="https://source.unsplash.com/collection/1729942" />
       <div class="card-van-infos">
         <div>
           <h2><%= link_to van.name, van_path(van)%></h2>
@@ -15,10 +17,19 @@
               <p class="van-status__unavailable">Unavailable</p>
             <% end %>
           </p>
+
         </div>
-        <h2 class="card-van-pricing"><%= van.price_per_day %>€</h2>
+        <h2 class="card-van-pricing"><%= van.price_per_day %>€ /day</h2>
         <img src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-van-user avatar-bordered" />
       </div>
     </div>
+
   <% end %>
 </div>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+

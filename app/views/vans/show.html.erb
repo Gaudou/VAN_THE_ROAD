@@ -1,8 +1,10 @@
 <h1 id="van-list"><i class="fas fa-shuttle-van"></i><br> <%=@van.name %> </h1>
+<a href="#" onclick="history.go(-1)"  class="">Go back to results </a>
 
 <div class="d-flex justify-content-center">
+
   <div class="card-van">
-      <img src="https://images.unsplash.com/photo-1594495894542-a46cc73e081a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" />
+      <img src="https://source.unsplash.com/collection/1729942" />
       <div class="card-van-infos">
         <div>
           <h2><%=@van.name %></h2>
@@ -16,17 +18,15 @@
             <% end %>
           </p>
         </div>
-        <h2 class="card-van-pricing"><%= @van.price_per_day %>€</h2>
+        <h2 class="card-van-pricing"><%= @van.price_per_day %>€ /day</h2>
         <img src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-van-user avatar-bordered" />
       </div>
     </div>
 </div>
 
 <div class="d-flex justify-content-center">
-  <%= link_to 'Van list', vans_path, class: 'btn btn-primary mr-5'%>
   <%= link_to 'Booking', new_van_booking_path(@van), class:'btn btn-info' %>
 </div>
-
 
 <br>
 <br>
@@ -38,3 +38,4 @@
 <% if policy(@van).destroy? %>
   <%= link_to '- Delete my Van', van_path(@van), method: :delete, data: { confirm: "Are you sure?" },  class:'btn btn-danger' %>
 <% end %>
+
