@@ -9,6 +9,16 @@ class VansController < ApplicationController
       @vans = Van.search_global("#{params[:model]} #{params[:capacity]} #{params[:van_city]}")
     end
     policy_scope(Van)
+    @markers = @vans.geocoded.map do |van|
+      {
+        lat: van.latitude,
+        lng: van.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { van: van }),
+         #<i class="fas fa-shuttle-van" style="color:#d98526"></i>
+        image_url: helpers.asset_url('shuttle-van-solid')
+      }
+
+    end
   end
 
   def show

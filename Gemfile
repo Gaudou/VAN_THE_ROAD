@@ -26,7 +26,9 @@ gem 'devise'
 # gem 'image_processing', '~> 1.2'
 gem 'faker'
 # Gem pendit
-gem 'pundit'
+
+
+gem 'geocoder'
 
 #gem pundit
 gem 'pundit'
