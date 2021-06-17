@@ -10,5 +10,3 @@ class ProfilsController < ApplicationController
     authorize @bookings_user
   end
 end
-
-
