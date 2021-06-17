@@ -1,6 +1,7 @@
 <div>
+  <h2>My vans</h2>
   <% @vans_user.each do |van_user| %>
-    <h2><%= van_user.name %></h2>
+    <h3><%= van_user.name %></h3>
     <p><%= van_user.model %></p>
     <p><%= van_user.capacity %></p>
     <p><%= van_user.van_city %></p>
@@ -11,9 +12,17 @@
       <% end %>
     </p>
   <% end %>
+  <% @bookings_user.each do |booking_user| %>
+    <p><%= booking_user.starting_date %></p>
+    <p><%= booking_user.ending_date %></p>
+  <% end %>
 </div>
 
 <div>
-  <% @bookings_user.each do |booking_user| %>
-  <h2><%= booking %></h2>
+  <h2>My booking</h2>
+  <% @my_bookings.each do |my_booking| %>
+    <h3><%= my_booking.van.name %></h3>
+    <p><%= my_booking.starting_date %></p>
+    <p><%= my_booking.ending_date %></p>
+  <% end %>
 </div>
