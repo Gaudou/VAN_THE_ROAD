@@ -15,7 +15,6 @@ class VansController < ApplicationController
         lng: van.longitude,
         info_window: render_to_string(partial: "info_window", locals: { van: van }),
          #<i class="fas fa-shuttle-van" style="color:#d98526"></i>
-        image_url: helpers.asset_url('shuttle-van-solid')
       }
     end
   end
