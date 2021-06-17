@@ -1,12 +1,19 @@
-<% @vans_user.each do |van_user| %>
-  <h2><%= van_user.name %></h2>
-  <p><%= van_user.model %></p>
-  <p><%= van_user.capacity %></p>
-  <p><%= van_user.van_city %></p>
-  <p><% if van_user.availability? %>
-      <p class="van-status__available">Available</p>
-    <% else %>
-      <p class="van-status__unavailable">Unavailable</p>
-    <% end %>
-  </p>
-<% end %>
+<div>
+  <% @vans_user.each do |van_user| %>
+    <h2><%= van_user.name %></h2>
+    <p><%= van_user.model %></p>
+    <p><%= van_user.capacity %></p>
+    <p><%= van_user.van_city %></p>
+    <p><% if van_user.availability? %>
+        <p class="van-status__available">Available</p>
+      <% else %>
+        <p class="van-status__unavailable">Unavailable</p>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+<div>
+  <% @bookings_user.each do |booking_user| %>
+  <h2><%= booking %></h2>
+</div>
