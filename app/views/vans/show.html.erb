@@ -45,7 +45,8 @@
     <% end %>
 
     <% if policy(@van).destroy? %>
-      <%= link_to '- Delete my Van', van_path(@van), method: :delete, data: { confirm: "Are you sure?" },  class:'btn btn-danger' %>
+      <%= link_to '- Delete my Van', van_path(@van), method: :delete, class:'btn btn-danger', id:"delete-van-btn", hidden: true%>
+        <button id="delete-van-confirmation" class="btn btn-danger">Delete my van</button>
     <% end %>
   </div>
 </div>

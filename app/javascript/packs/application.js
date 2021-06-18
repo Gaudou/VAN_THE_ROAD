@@ -50,7 +50,7 @@ document.addEventListener('turbolinks:load', () => {
 
   initSweetalert('#delete-van-confirmation', {
     title: "Are you sure?",
-    text: "This action cannot be reversed",
+    text: "You are going to remove permanently your vehicle",
     icon: "warning",
     buttons: true,
     dangerMode: true,
