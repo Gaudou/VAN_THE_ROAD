@@ -5,6 +5,9 @@
     <%= render 'search_form' %>
     <div class="title-home">
       <% if policy(Van).create? %>
+      <br>
+      <br>
+      <h1 class="text-center" style="color:white">Or </h1>
       <%= link_to 'Post your van for rent', new_van_path, class: 'btn btn-primary btn-detail' %>
       <% end %>
     </div>
