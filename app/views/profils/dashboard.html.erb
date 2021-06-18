@@ -3,12 +3,16 @@
     <h2>My vans</h2>
     <% @vans_user.each do |van_user| %>
       <div class="card-profile">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80" />
         <div class="card-profile-infos">
           <h2><%= van_user.name %></h2>
           <p><strong>Model: </strong><%= van_user.model %></p>
           <p><strong>Capacity: </strong><%= van_user.capacity %></p>
           <p><strong>City: </strong><%= van_user.van_city %></p>
+          <% unless van_user.bookings.first.nil? %>
+            <p><strong>Starting date: </strong><%= van_user.bookings.last.starting_date %></p>
+            <p><strong>Ending date: </strong><%= van_user.bookings.last.ending_date %></p>
+          <% end %>
           <p><% if van_user.availability? %>
               <p class="van-status__available">Available</p>
             <% else %>
@@ -18,17 +22,13 @@
         </div>
       </div>
     <% end %>
-    <% @bookings_user.each do |booking_user| %>
-      <p><strong>Starting date: </strong><%= booking_user.starting_date %></p>
-      <p><strong>Ending date: </strong><%= booking_user.ending_date %></p>
-    <% end %>
   </div>
 
   <div class="cards-mybookings">
     <h2>My bookings</h2>
     <% @my_bookings.each do |my_booking| %>
       <div class="card-profile">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80" />
         <div class="card-profile-infos">
           <h2><%= my_booking.van.name %></h2>
           <p><strong>Starting date: </strong><%= my_booking.starting_date %></p>
@@ -38,3 +38,5 @@
     <% end %>
   </div>
 </div>
+
+<%= console %>

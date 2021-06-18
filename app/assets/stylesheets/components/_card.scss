@@ -103,24 +103,30 @@
 .cards-profile {
   display: flex;
   justify-content: space-between;
-  margin: 50px;
+  margin: 0 auto;
+  flex-direction: column;
+  width: 800px;
 }
 
 .cards-myvans {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  flex-direction: column;
+  margin: 30px;
 }
 
 .cards-mybookings {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  flex-direction: column;
+  margin: 30px;
 }
 
 .card-profile {
   overflow: hidden;
-  height: 170px;
+  height: 190px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -129,7 +135,7 @@
 
 .card-profile img {
   height: 100%;
-  width: 170px;
+  width: 190px;
   object-fit: cover;
 }
 
