@@ -29,6 +29,8 @@
   <%= simple_form_for [@van, @booking] do |f|%>
     <%= f.input :starting_date %>
     <%= f.input :ending_date %>
-    <%= f.submit "Demarre ton vaaan", class: "btn btn-primary" %>
+    <%= f.submit "Demarre ton vaaan", class: "btn btn-primary", id: "submit-booking", hidden: true %>
   <% end %>
+  <button id="booking-confirmation" class="btn btn-primary">Demarre ton vaaan</button>
+
 </div>

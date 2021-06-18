@@ -21,3 +21,11 @@
   padding: 16px 36px;
   margin: 40px;
 }
+
+.swal-button {
+  background-color: #d98526;
+  &:hover {
+    background-color: #b87020 !important;
+  }
+}
+
