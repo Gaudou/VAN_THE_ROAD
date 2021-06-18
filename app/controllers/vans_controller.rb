@@ -58,7 +58,7 @@ class VansController < ApplicationController
     @van = Van.find(params[:id])
     authorize @van
     @van.destroy
-    redirect_to vans_path
+    redirect_to dashboard_path
   end
 
   private

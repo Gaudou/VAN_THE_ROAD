@@ -28,8 +28,9 @@ import "bootstrap";
 
 
 // Internal imports, e.g:
-import { initSweetalert } from '../plugins/booking_confirmation';
+import { initSweetalert } from '../plugins/init_sweetalert';
 import { initMapbox } from '../plugins/init_mapbox';
+
 // import { initSelect2 } from '../components/init_select2';
 
 
@@ -45,5 +46,18 @@ document.addEventListener('turbolinks:load', () => {
     const link = document.querySelector('#submit-booking');
     link.click();
   }
+});
+
+  initSweetalert('#delete-van-confirmation', {
+    title: "Are you sure?",
+    text: "You are going to remove permanently your vehicle",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }, (value) => {
+    if (value) {
+      const link = document.querySelector('#delete-van-btn');
+      link.click();
+    }
   });
 });
