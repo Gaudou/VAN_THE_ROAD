@@ -1,10 +1,11 @@
-<h1 id="van-list"><i class="fas fa-shuttle-van"></i><br> <%=@van.name %> </h1>
-<a href="#" onclick="history.go(-1)"  class="btn ">Go back to results </a>
+<a href="#" onclick="history.go(-1)"  class="btn "> << Go back to results </a>
+
+<h1 id="van-list"><br> <strong>Your Choice :</strong> <%=@van.name %> </h1>
 
 <div class="d-flex justify-content-center">
 
   <div class="card-van">
-      <img src="https://source.unsplash.com/collection/1729942" />
+      <%= image_tag("https://source.unsplash.com/collection/1729942/?sig=#{@van.id}") %>
       <div class="card-van-infos">
         <div>
           <h2><%=@van.name %></h2>
