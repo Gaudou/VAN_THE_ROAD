@@ -1,5 +1,6 @@
-<div class="full-screen">
-  <div class="container d-flex justify-content-center align-items-center">
+<div class="full-screen" id="home-background">
+  <div class="container flex-column d-flex justify-content-center align-items-center">
+    <h1 class="text-center mb-5" style="color:white">Van the road with us !</h1>
     <%= render 'search_form' %>
     <div class="title-home">
       <% if policy(Van).create? %>
