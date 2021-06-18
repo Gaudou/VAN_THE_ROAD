@@ -1,11 +1,12 @@
-<div class="col">
+<div class="col" style="max-width: 500px;">
 <h2 class="mb-3">Add your van for rent</h2>
-<%= simple_form_for(@van) do |f| %>
+<%= simple_form_for(@van) do |f|%>
   <%= f.input :name %>
   <%= f.input :model %>
-  <%= f.input :capacity %>
+  <%= f.input :capacity, as: :numeric, input_html: { min: '0', step: 'any' } %>
   <%= f.input :van_city %>
-  <%= f.input :price_per_day %>
+  <%= f.input :price_per_day, as: :numeric, input_html: { min: '0', step: 'any' } %>
   <%= f.submit class: "btn btn-primary w-100"%>
 <% end %>
 </end>
+</div>
