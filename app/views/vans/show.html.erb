@@ -1,4 +1,4 @@
-<a href="#" onclick="history.go(-1)"  class="btn "> << Go back to results </a>
+<a href="#" onclick="history.go(-1)"  class="btn btn-primary mt-5 ml-5"> << Go back to results </a>
 
 <h1 id="van-list"><br> <strong>Your Choice :</strong> <%=@van.name %> </h1>
 
@@ -20,7 +20,8 @@
           </p>
         </div>
         <h2 class="card-van-pricing"><%= @van.price_per_day %>€ /day</h2>
-        <img src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-van-user avatar-bordered" />
+        <%= image_tag "https://source.unsplash.com/collection/4389261/?sig=#{@van.user.id}", class:'card-van-user avatar-bordered' %>
+        <!-- <img src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-van-user avatar-bordered" /> -->
       </div>
     </div>
 </div>
@@ -30,17 +31,24 @@
 </div>
 
 <br>
-<br>
-
-<% if policy(@van).edit? %>
-  <%= link_to 'Edit my Van', edit_van_path(@van), class: 'btn btn-secondary' %>
-<% end %>
 
 
-<% if policy(@van).destroy? %>
-  <%= link_to '- Delete my Van', van_path(@van), method: :delete, class:'btn btn-danger', id:"delete-van-btn", hidden: true%>
-  <button id="delete-van-confirmation" class="btn btn-danger">Delete my van</button>
+  <% if @van.user == current_user %>
+  <div class="card-van p-4 mx-auto">
+    <h4 id="van-list" class="text-secondary"> <strong><i class="fas fa-arrow-down"></i> It's your van <i class="fas fa-arrow-down"></i></strong></h4>
+    <br>
+  <% end %>
 
-<% end %>
+  <div class="d-flex justify-content-center">
+    <% if policy(@van).edit? %>
+      <%= link_to 'Edit my Van', edit_van_path(@van), class: 'btn btn-secondary mr-5' %>
+    <% end %>
+
+    <% if policy(@van).destroy? %>
+      <%= link_to '- Delete my Van', van_path(@van), method: :delete, data: { confirm: "Are you sure?" },  class:'btn btn-danger' %>
+    <% end %>
+  </div>
+</div>
+
 
 
