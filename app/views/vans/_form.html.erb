@@ -1,8 +1,10 @@
-<%= simple_form_for(@van) do |f| %>
+
+<%= simple_form_for(@van) do |f|%>
   <%= f.input :name %>
   <%= f.input :model %>
-  <%= f.input :capacity %>
+  <%= f.input :capacity, as: :numeric, input_html: { min: '0', step: 'any' } %>
   <%= f.input :van_city %>
-  <%= f.input :price_per_day %>
-  <%= f.submit %>
+  <%= f.input :price_per_day, as: :numeric, input_html: { min: '0', step: 'any' } %>
+  <%= f.submit class: "btn btn-primary w-100"%>
 <% end %>
+</end>
